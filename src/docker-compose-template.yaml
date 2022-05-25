@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  solana-epoch-monitor:
+    image: devpowercouk/solana-epoch-monitor
+    build:
+      context: .
+      dockerfile: SolanaEpochMonitor.WorkerService/Dockerfile
+    restart: always
+    environment:
+      AppSettings__ApiUrl: "https://explorer-api.mainnet-beta.solana.com"
+      AppSettings__CheckIntervalInMinutes: 60
+      EmailSettings__FromAddress: ""
+      EmailSettings__ToAddress: ""
+      EmailSettings__Subject: "Solana New Epoch Notification"
+      EmailSettings__FromName: "Solana Epoch Monitor"
+      SmtpSettings__Host: ""
+      SmtpSettings__Username: ""
+      SmtpSettings__Password: ""
+      SmtpSettings__Port: 0
+    volumes:
+      - {PATH/TO/DB.JSON}:/db.json
