@@ -3,9 +3,6 @@ version: "3.9"
 services:
   solana-epoch-monitor:
     image: devpowercouk/solana-epoch-monitor
-    build:
-      context: .
-      dockerfile: SolanaEpochMonitor.WorkerService/Dockerfile
     restart: always
     environment:
       AppSettings__ApiUrl: "https://explorer-api.mainnet-beta.solana.com"
