@@ -21,7 +21,7 @@ public class Worker : BackgroundService
         string apiUrl = _settings.ApiUrl;
         int interval = _settings.CheckIntervalInMinutes;
         
-        _logger.LogInformation(FormatLogMessage($"Worker started with the following:\n{_settings}"));
+        _logger.LogInformation(FormatLogMessage($"[1.0.2] Worker started with the following:\n{_settings}"));
         
         var apiClient = new SolanaApiClient(apiUrl);
         var persistenceService = new PersistanceService();
@@ -38,7 +38,6 @@ public class Worker : BackgroundService
                 
                 await _emailService.SendNotification(message);
                 persistenceService.SaveLastNotifiedEpoch(getEpochInfoResponse.Result.Epoch);
-                return;
             }
 
             await Task.Delay(interval * 60 * 1000, stoppingToken);
