@@ -134,3 +134,6 @@ src/SolanaEpochMonitor.WorkerService/bin
 src/SolanaEpochMonitor.WorkerService/obj
 src/SolanaEpochMonitor.EmailService/obj
 src/SolanaEpochMonitor.WorkerService/bin
+src/SolanaEpochMonitor.WorkerService/obj
+src/SolanaEpochMonitor.EmailService/obj
+src/db.json
